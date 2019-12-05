@@ -5,7 +5,6 @@ const config = {
 }
 
 async function getCOMPINFO (getURL) {
-  console.log(getURL)
   return axios.post(`${config.baseUrl}getSettingInfo`, getURL)
 }
 

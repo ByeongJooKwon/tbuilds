@@ -58,9 +58,9 @@ export default new Vuex.Store({
   actions: {
     async SET_INFO ({ commit }, url) {
       const res = await getCOMPINFO(url)
-      console.log('commit start!')
+      console.log('actions SET commit start!')
       commit('SET_DATA', res.data[0])
-      console.log('commit end!')
+      console.log('actions SET commit end!')
       return res.data[0]
     },
     async GET_KRX (context, payload) {

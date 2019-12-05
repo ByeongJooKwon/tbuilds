@@ -35,9 +35,9 @@ export default {
     }
   },
   mounted () {
-    console.log('getKrx start')
+    console.log('HomeMainVisual.vue mounted start')
     this.getKrxData()
-    console.log('getKrx End!')
+    console.log('HomeMainVisual.vue mounted End!')
   },
   computed: {
     ...mapGetters(['getKrxXMLData'])
@@ -45,6 +45,7 @@ export default {
   methods: {
     async getKrxData () {
       const _self = this
+      console.log(_self.getKrxXMLData, ' : this is blank?')
       if (_self.getKrxXMLData) {
         const param = {
           'code': _self.getKrxXMLData

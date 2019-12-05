@@ -93,12 +93,10 @@ export default {
     // const _web = filter.indexOf(navigator.platform.toLowerCase()) < 0 !== true
     // const _iOS = navigator.userAgent.match(/iPhone|iPad|iPod/i) !== null
     // const _android = navigator.userAgent.match(/Android/i) !== null
-    console.log('App.vue mounted started!!')
     if (window.outerWidth < 900) {
       this.isMobile = true
     }
     this.fullPath = this.$route.fullPath
-    console.log('App.vue mounted end!!')
   }
 }
 </script>
