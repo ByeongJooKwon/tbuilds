@@ -69,19 +69,10 @@ export default {
     handleResize () {
       this.widths = window.innerWidth
     },
-    settingInfo () {
-      const param = {
-        'url': 'samsung.irpage.co.kr'
-      }
-      const res = this.$store.dispatch('SET_INFO', param)
-    }
+
   },
   beforeCreate () {
-    const param = {
-      'url': 'samsung.irpage.co.kr'
-    }
-    const res = this.$store.dispatch('SET_INFO', param)
-  },
+    },
   created () {
     console.log('App.vue created started!!')
     window.addEventListener('resize', this.handleResize)
@@ -89,6 +80,12 @@ export default {
     console.log('App.vue created end!!')
   },
   mounted () {
+    const param = {
+      'url': 'samsung.irpage.co.kr'
+    }
+    console.log('hello');
+    console.log('this.$store :', this.$store);
+    const res = this.$store.dispatch('SET_INFO')
     // const filter = 'win16|win32|win64|mac|macintel';
     // const _web = filter.indexOf(navigator.platform.toLowerCase()) < 0 !== true
     // const _iOS = navigator.userAgent.match(/iPhone|iPad|iPod/i) !== null

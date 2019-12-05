@@ -4,6 +4,8 @@
         © 2019 LG Display Co., Ltd. All rights reserved.
     </h3>
     <h4>
+        <h1>{{ this.$store.getters.helloWorld}}</h1> 
+          hahahah
         (주)LG디스플레이 | 대표이사 한상범 | 사업자등록번호 24-81-00998 <br />
         서울특별시 영등포구 여의대로 128, LG트윈타워
     </h4>

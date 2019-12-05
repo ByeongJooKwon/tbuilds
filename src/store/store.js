@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getCOMPINFO, getKrxData } from '../api'
-
+import { stat } from 'fs'
+const axios = require('axios')
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -20,6 +20,9 @@ export default new Vuex.Store({
   getters: {
     getKrxXMLData (state) {
       return state.code
+    },
+    helloWorld (state, payload) {
+      return state.company
     }
   },
   mutations: {
@@ -53,20 +56,26 @@ export default new Vuex.Store({
     },
     SET_CODE (state, payload) {
       state.code = payload
+    },
+    helloWorld (state, payload) {
+      state.company = payload.message
     }
   },
   actions: {
-    async SET_INFO ({ commit }, url) {
-      const res = await getCOMPINFO(url)
-      console.log('actions SET commit start!')
-      commit('SET_DATA', res.data[0])
-      console.log('actions SET commit end!')
-      return res.data[0]
-    },
-    async GET_KRX (context, payload) {
-      const res = await getKrxData(payload.code)
-      console.log('plz')
-      return res.data[0]
+    async SET_INFO (context) {
+      const payload = {
+        message: ''
+      }
+      console.log('start action :')
+      await axios.get('http://localhost:9000/nice1')
+        .then((res) => {
+          const data = res.data.department
+          payload.message = data
+        }).catch((e) => {
+          console.log('e :', e)
+        })
+      console.log('payload :', payload)
+      context.commit('helloWorld', payload)
     }
   }
 })
